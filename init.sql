@@ -42,7 +42,7 @@ CREATE TABLE Comenzi (
     FOREIGN KEY (utilizator_id) REFERENCES Utilizatori(id) ON DELETE CASCADE
 );
 
--- Tabel 6: Linii_Comanda (Tabel de legătură M:N)
+-- Tabel 6: Linii_Comanda (Tabel de legatura M:N)
 CREATE TABLE Linii_Comanda (
     comanda_id INT NOT NULL,
     produs_id INT NOT NULL,
@@ -52,3 +52,29 @@ CREATE TABLE Linii_Comanda (
     FOREIGN KEY (comanda_id) REFERENCES Comenzi(id) ON DELETE CASCADE,
     FOREIGN KEY (produs_id) REFERENCES Produse(id) ON DELETE RESTRICT
 );
+
+-- ==========================================
+-- FIXTURES (Date de test pentru initializare)
+-- ==========================================
+
+INSERT INTO Roluri (nume_rol) VALUES ('Administrator'), ('Angajat'), ('Client');
+
+INSERT INTO Utilizatori (nume, email, parola_hash, rol_id) VALUES 
+('Admin', 'admin@magazin.ro', 'hash_parola_admin', 1),
+('Popescu Ion', 'ion@gmail.com', 'hash_parola_client', 3);
+
+INSERT INTO Categorii (nume_categorie) VALUES 
+('Placi Video'), ('Procesoare'), ('Laptopuri'), ('Monitoare'), ('Periferice');
+
+INSERT INTO Produse (nume_produs, pret, stoc_curent, categorie_id) VALUES 
+('ASUS Prime RTX 5080', 6500.00, 12, 1),
+('AMD Ryzen 7 5700X3D', 1250.00, 25, 2),
+('Laptop Toshiba', 13500.00, 5, 3),
+('AORUS FO27Q2', 4800.00, 8, 4),
+('Tastatura Redragon Horus K618', 350.00, 30, 5);
+
+INSERT INTO Comenzi (status, utilizator_id) VALUES ('FINALIZATA', 2);
+
+INSERT INTO Linii_Comanda (comanda_id, produs_id, cantitate, pret_unitar) VALUES 
+(1, 1, 1, 6500.00), 
+(1, 5, 1, 350.00);
