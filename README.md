@@ -1,4 +1,4 @@
-**# Sistem de gestiune magazin componente hardware
+# Sistem de gestiune magazin componente hardware
 
 ## Etapa 0: Tema
 Sistem back-office pentru gestionarea inventarului și procesarea vânzărilor de componente PC. Baza de date relațională MySQL gestionează stocuri, comenzi, clienți și drepturi de acces.
