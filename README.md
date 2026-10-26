@@ -12,4 +12,4 @@ Modelul conține 6 tabele cu relații PK/FK:
 - `Comenzi` (1:N cu Linii_Comanda)
 - `Linii_Comanda` (tabel de legătură M:N între Comenzi și Produse)
 
-Fixtures: Datele de test sunt încărcate la pornirea serviciului prin scriptul `init.sql`.**
+Fixtures: Datele de test sunt încărcate la pornirea serviciului prin scriptul `init.sql`.
